@@ -13,7 +13,7 @@ PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 SECRET_KEY = '&w_@x2mt!7hhqc1jt+ku8)z7__m8plw52o!b#!m5tp#wdcjyyk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -255,7 +255,7 @@ DEFAULT_DOMAIN = 'http://medcare.com/'
 
 
 # ========== PROJECT ==========
-OPAL_BRAND_NAME = 'medcare'
+OPAL_BRAND_NAME = 'Medcare'
 VERSION_NUMBER  = '<0.0.1'
 
 # if you want sass, uncomment the below and gem install sass
