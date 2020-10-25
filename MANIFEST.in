@@ -1,0 +1,3 @@
+recursive-include medcare/static *
+recursive-include medcare/assets *
+recursive-include medcare/templates *
