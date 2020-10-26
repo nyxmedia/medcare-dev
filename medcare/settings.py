@@ -18,7 +18,6 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '.herokuapp.com'
 ]
 
 INSTALLED_APPS = [
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'opal.core.pathway',
     'opal.core.referencedata',
     'medcare',
+    'obs',
 
     'django.contrib.admin',
 ]
