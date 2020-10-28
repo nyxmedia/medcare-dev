@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'opal.core.search',
     'opal.core.pathway',
     'opal.core.referencedata',
+#   'parler',
     'medcare',
     'obs',
 
@@ -44,8 +45,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'opal.middleware.AngularCSRFRename',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -139,11 +141,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
+# LANGUAGE_CODE = 'ro'
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+LOCALE_PATHS = [
+    os.path.join(PROJECT_PATH, 'locale')
+]
 
 
 # Static files (CSS, JavaScript, Images)
