@@ -1,0 +1,23 @@
+{% load i18n %}
+<div class="header-content">
+  <div class="navbar-form nav navbar-nav navbar-right" id="lang-switcher">
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_available_languages as LANGUAGES %}
+    {% get_language_info_list for LANGUAGES as languages %}
+    <div class="dropdown show">
+      <a href="#" class="btn btn-secondary dropdown-toggle text-uppercase" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{LANGUAGE_CODE}}&nbsp;<span class="caret"></span></a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="language-list">
+        <ul>
+          {% for language in languages %}
+          <li>
+            <a href="{% url 'set_language' %}"  class="dropdown-item" data-language-code="{{ language.code }}">
+              {% if language.code == LANGUAGE_CODE %}&#10003;{% else %}&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}
+              {{ language.name_local }}
+            </a>
+          </li>
+          {% endfor %}
+      </ul>
+      </div>
+    </div>
+  </div>
+</div>

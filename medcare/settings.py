@@ -150,6 +150,10 @@ USE_TZ = True
 LOCALE_PATHS = [
     os.path.join(PROJECT_PATH, 'locale')
 ]
+LANGUAGES = [
+    ('en', 'English'),
+    ('ro', 'Romana'),
+]
 
 
 # Static files (CSS, JavaScript, Images)

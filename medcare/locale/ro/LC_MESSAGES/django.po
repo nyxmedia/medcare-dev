@@ -47,4 +47,4 @@ msgstr "Cauta"
 
 #: .\medcare\templates\welcome.html:67 .\medcare\templates\welcome.html:81
 msgid "Admin"
-msgstr "Administrare"
+msgstr "Admin"

@@ -1,0 +1,17 @@
+#lang-switcher {
+    margin-left: 0px;
+}
+#dropdownMenuLink {
+    text-transform: uppercase;
+}
+#language-list {
+    min-width: 120px;
+    margin-top: -1px;
+}
+#language-list li {
+    padding: 3px 10px;
+}
+#language-list a:hover {
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+}
