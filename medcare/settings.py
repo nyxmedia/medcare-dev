@@ -18,6 +18,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '.eu-central-1.compute.amazonaws.com',
+    '.eu-central-1.compute.internal',
 ]
 
 INSTALLED_APPS = [
