@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 #   'parler',
     'medcare',
     'obs',
+    'lab',
 
     'django.contrib.admin',
 ]
