@@ -2,7 +2,7 @@ import six
 from jsonfield import JSONField
 from django.db import models
 from django.db import transaction
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db.models.base import ModelBase
 import opal.models as omodels
 from opal.utils import find_template
@@ -77,7 +77,7 @@ class Observation(six.with_metaclass(
     consistency_token = models.CharField(max_length=8)
     observation_type = models.CharField(max_length=256)
     extras = JSONField(blank=True, null=True)
-    lab_test = models.ForeignKey('LabTest', related_name='observations')
+    lab_test = models.ForeignKey('LabTest', related_name='observations', on_delete=models.CASCADE)
     result = models.CharField(
         blank=True,
         null=True,
@@ -216,12 +216,16 @@ class Antimicrobial(Observation):
 
     lookup_list = omodels.Antimicrobial
 
+class Microbiology_organism(omodels.lookuplists.LookupList):
+    class Meta:
+        verbose_name = "Microbiology organism"
+        verbose_name_plural = "Microbiology organisms"
 
 class Organism(Observation):
     class Meta:
         proxy = True
 
-    lookup_list = omodels.Microbiology_organism
+    lookup_list = Microbiology_organism
 
 class DynamicResultChoices(Observation):
     """
@@ -648,3 +652,11 @@ class ReadOnlyLabTest(LabTest, AbstractBase):
         result = super(ReadOnlyLabTest, self).to_dict(*args, **kwargs)
         result["observations"] = result["extras"].pop("observations", {})
         return result
+
+class RSVTest(LabTest):
+    issue = PendingPosNeg()
+    present = PosNegUnknown()
+
+class SmearTest(LabTest):
+    issue = PendingPosNeg()
+    present = PosNegUnknown()

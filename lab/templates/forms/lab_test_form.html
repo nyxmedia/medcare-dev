@@ -1,3 +1,22 @@
+{% load lab_tags %}
 {% load forms %}
+{% block lab_form %}
 {% input label="Test type" model="editing.lab_test.lab_test_type" lookuplist="metadata.lab_tests.all_tests" %}
-<div ng-include src="metadata.lab_tests[editing.lab_test.lab_test_type].result_form_url"></div>
+{% datetimepicker field="LabTest.datetime_ordered" %}
+{% for observation in lab_test.retrieve_observations %}
+  {% observation_form observation %}
+{% endfor %}
+{% if lab_test.POTENTIALLY_SENSITIVE %}
+  {% select field="LabTest.sensitive_antibiotics" multiple=True tagging=False search_select=True %}
+{% endif %}
+{% if lab_test.POTENTIALLY_RESISTANT %}
+  {% select field="LabTest.resistant_antibiotics" multiple=True tagging=False search_select=True %}
+{% endif %}
+{% endblock %}
+{% block extra_fields %}
+  {% select field="LabTest.status" %}
+  {% datetimepicker field="LabTest.datetime_received" %}
+  {% textarea field="LabTest.sensitive_antibiotics" %}
+  {% textarea field="LabTest.resistant_antibiotics" %}
+  {% textarea field="LabTest.extras" %}
+{% endblock extra_fields %}

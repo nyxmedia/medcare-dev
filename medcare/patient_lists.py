@@ -6,6 +6,7 @@ from opal.models import Episode
 
 from medcare import models
 from obs import models as obsmodels
+from lab import models as labmodels
 
 class AllPatientsList(core.patient_lists.PatientList):
     display_name = 'All Patients'
@@ -14,6 +15,7 @@ class AllPatientsList(core.patient_lists.PatientList):
         models.Demographics,
         models.Diagnosis,
         models.Treatment,
+        labmodels.LabTest,
         obsmodels.Observation
     ]
 
