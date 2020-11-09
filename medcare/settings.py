@@ -262,13 +262,13 @@ INTEGRATING = False
 
 # OPAL-required Django settings you should edit
 CONTACT_EMAIL = []
-DEFAULT_FROM_EMAIL = 'hello@example.com'
-DEFAULT_DOMAIN = 'http://medcare.com/'
+DEFAULT_FROM_EMAIL = 'help@meddesk.eu'
+DEFAULT_DOMAIN = 'http://meddesk.eu/'
 
 
 # ========== PROJECT ==========
-OPAL_BRAND_NAME = 'Medcare'
-VERSION_NUMBER  = '<0.0.1'
+OPAL_BRAND_NAME = 'MedDesk'
+VERSION_NUMBER  = '1.0'
 
 # if you want sass, uncomment the below and gem install sass
 # COMPRESS_PRECOMPILERS = (
